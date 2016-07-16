@@ -15,6 +15,10 @@
 
         $sql = "SELECT * FROM users WHERE username='$username' LIMIT 1";
         $query = mysqli_query($db, $sql);
+        if(mysqli_num_rows($query) == 0){
+            $error = "yo that username don't exist";
+        }
+
         $row = mysqli_fetch_array($query);
         $id = $row['id'];
         $db_password = $row['password'];
@@ -23,7 +27,7 @@
             $_SESSION['id'] = $id;
             header("Location: index.php");
         } else {
-            $error = "<p>You didn't enter the correct details!</p>";
+            $error = "<p>yo ur pw was off dawg!</p>";
         }
     }
 ?>
