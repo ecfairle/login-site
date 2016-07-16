@@ -15,14 +15,13 @@
 
         $sql = "SELECT * FROM users WHERE username='$username' LIMIT 1";
         $query = mysqli_query($db, $sql);
-        if(mysqli_num_rows($query) == 0){
-            $error = "yo that username don't exist";
-        }
-
         $row = mysqli_fetch_array($query);
         $id = $row['id'];
         $db_password = $row['password'];
-       if(password_verify($password, $db_password)) {
+        if(mysqli_num_rows($query) == 0){
+            $error = "yo that username don't exist";
+        } 
+        else if(password_verify($password, $db_password)) {
             $_SESSION['username'] = $username;
             $_SESSION['id'] = $id;
             header("Location: index.php");
@@ -46,14 +45,14 @@
     </a>
     <div class="frm">
         <form action="login.php" method="post" enctype="multipart/form-data">
-            <input placeholder="Username" name="username" type="text" class="textbox" autofocus>
-            <input placeholder="Password" name="password" type="password" class="textbox">
+            <input placeholder="Username" name="username" type="text" class="textbox" autofocus autocomplete="off">
+            <input placeholder="Password" name="password" type="password" class="textbox" autocomplete="off">
             <input name="login" type="submit" class="button" value="Log In">
         </form>
         <form action="signup.php" method="post" enctype="multipart/form-data">
         <?php echo $error?>
         <p>No Account?</p>
-        <button name="signup" class="button" style="vertical-align:middle"><span>Sign Up </span></button>
+        <input value="Sign Up" type="submit" class="button" style="vertical-align:middle">
         </form>
     </div>
     

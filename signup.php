@@ -48,22 +48,22 @@
     <form action="login.php" method="post" enctype="multipart/form-data">
     <a href="login.php">
     <div class="headerMenu">
-        <h1>Sign Up</h1>
+        <h1>don't hate me</h1>
     </div>
     </a>
     </form>
     <div class="frm">
         <form action="signup.php" method="post" enctype="multipart/form-data">
-            <div class="b_area"> <input class="textbox" placeholder="Username" name="username" type="text" autofocus></div>
+            <div class="b_area"> <input class="textbox" placeholder="Username" name="username" type="text" autocomplete="off" autofocus></div>
 
             
-            <div class="b_area"><input class="textbox" placeholder="Password" name="password" type="password"></div>
+            <div class="b_area"><input class="textbox" placeholder="Password" name="password" type="password" autocomplete="off"></div>
             <div class="b_area">
-                <input class="textbox" placeholder="favorite color" name="color" type="text">
+                <input class="textbox" placeholder="favorite color" name="color" type="text" autocomplete="off">
                 
             </div>
             <div><?php echo $username_error?></div>
-            <button name="sub" class="button" style="vertical-align:middle">Submit</button>
+            <div class="b_area"><input name="sub" type="submit" class="button" style="vertical-align:middle"></div>
         </form>
     </div>
     
